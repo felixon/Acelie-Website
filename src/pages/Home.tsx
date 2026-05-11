@@ -257,7 +257,7 @@ export default function Home() {
     <div ref={motionRootRef} className="overflow-hidden bg-offwhite">
       <div ref={cursorRef} className="anime-cursor hidden lg:block" />
       {/* Hero Slideshow Section */}
-      <section className="gsap-hero relative flex min-h-[500px] items-start overflow-hidden px-6 pb-16 pt-28 surface-dark md:h-screen md:min-h-[700px] md:items-center md:pb-0 md:pt-0">
+      <section className="gsap-hero relative flex min-h-[620px] items-start overflow-hidden px-6 surface-dark md:h-screen md:min-h-[700px] md:items-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -276,8 +276,8 @@ export default function Home() {
                <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
             </div>
 
-            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-start px-2 md:items-center md:px-16">
-              <div className="max-w-4xl">
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-start px-2 pt-28 md:items-center md:px-16 md:pt-0">
+              <div className="max-w-4xl pb-20 md:pb-0">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -323,7 +323,7 @@ export default function Home() {
         </svg>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-6 z-20 flex gap-3 md:bottom-10 md:left-10 md:gap-4">
+        <div className="absolute bottom-8 left-8 z-20 flex gap-3 md:bottom-10 md:left-10 md:gap-4">
           {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
