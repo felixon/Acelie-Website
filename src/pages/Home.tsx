@@ -257,7 +257,7 @@ export default function Home() {
     <div ref={motionRootRef} className="overflow-hidden bg-offwhite">
       <div ref={cursorRef} className="anime-cursor hidden lg:block" />
       {/* Hero Slideshow Section */}
-      <section className="gsap-hero relative flex min-h-[560px] items-center overflow-hidden px-6 pt-16 surface-dark md:h-screen md:min-h-[700px] md:pt-0">
+      <section className="gsap-hero relative flex min-h-[500px] items-start overflow-hidden px-6 pb-16 pt-28 surface-dark md:h-screen md:min-h-[700px] md:items-center md:pb-0 md:pt-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -276,20 +276,20 @@ export default function Home() {
                <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
             </div>
 
-            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-center px-2 md:px-16">
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-start px-2 md:items-center md:px-16">
               <div className="max-w-4xl">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <div className="mb-5 md:mb-8">
-                    <div className="anime-hero-line w-12 h-px bg-gold mb-4 origin-left" />
-                    <h4 className="anime-hero-copy font-bold text-[10px] md:text-xs tracking-[0.4em] text-gold uppercase">
+                  <div className="mb-3 md:mb-8">
+                    <div className="anime-hero-line mb-3 h-px w-10 origin-left bg-gold md:mb-4 md:w-12" />
+                    <h4 className="anime-hero-copy text-[9px] font-bold uppercase tracking-[0.38em] text-gold md:text-xs md:tracking-[0.4em]">
                       {HERO_SLIDES[currentSlide].tagline}
                     </h4>
                   </div>
-                  <h1 className="display-xl mb-5 max-w-5xl text-white md:mb-8" aria-label={HERO_SLIDES[currentSlide].title}>
+                  <h1 className="display-xl mb-4 max-w-5xl text-white md:mb-8" aria-label={HERO_SLIDES[currentSlide].title}>
                     <span aria-hidden="true">
                       {HERO_SLIDES[currentSlide].title.split('.')[0].split('').map((char, index) => (
                         <span key={`${currentSlide}-${char}-${index}`} className="anime-hero-char inline-block will-change-transform">
@@ -299,15 +299,15 @@ export default function Home() {
                       <span className="anime-hero-char inline-block text-gold">.</span>
                     </span>
                   </h1>
-                  <p className="anime-hero-copy mb-8 max-w-xl font-body text-base leading-relaxed text-white/60 md:mb-12 md:text-2xl">
+                  <p className="anime-hero-copy mb-6 max-w-xl font-body text-base leading-relaxed text-white/60 md:mb-12 md:text-2xl">
                     {HERO_SLIDES[currentSlide].subtitle}
                   </p>
                   
-                  <div className="anime-hero-copy flex flex-row flex-wrap gap-3">
-                    <Link to="/about" className="anime-hover btn-primary text-xs px-5 py-3">
+                  <div className="anime-hero-copy flex flex-row flex-wrap gap-2.5 md:gap-3">
+                    <Link to="/about" className="anime-hover btn-primary px-4 py-3 text-[11px] md:px-5 md:text-xs">
                       DISCOVER MISSION
                     </Link>
-                    <Link to="/get-involved" className="anime-hover border border-white/20 text-white font-bold text-xs px-5 py-3 rounded-none hover:bg-white hover:text-navy transition-colors">
+                    <Link to="/get-involved" className="anime-hover rounded-none border border-white/20 px-4 py-3 text-[11px] font-bold text-white transition-colors hover:bg-white hover:text-navy md:px-5 md:text-xs">
                       GET INVOLVED
                     </Link>
                   </div>
