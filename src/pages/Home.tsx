@@ -257,7 +257,7 @@ export default function Home() {
     <div ref={motionRootRef} className="overflow-hidden bg-offwhite">
       <div ref={cursorRef} className="anime-cursor hidden lg:block" />
       {/* Hero Slideshow Section */}
-      <section className="gsap-hero relative flex min-h-[620px] items-start overflow-hidden px-6 surface-dark md:h-screen md:min-h-[700px] md:items-center">
+      <section className="gsap-hero relative h-screen min-h-[700px] flex items-center surface-dark px-6 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -276,20 +276,20 @@ export default function Home() {
                <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
             </div>
 
-            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-start px-2 pt-28 md:items-center md:px-16 md:pt-0">
-              <div className="max-w-4xl pb-20 md:pb-0">
+            <div className="max-w-[1440px] mx-auto w-full h-full flex items-center relative z-10 px-8 md:px-16">
+              <div className="max-w-4xl">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <div className="mb-3 md:mb-8">
-                    <div className="anime-hero-line mb-3 h-px w-10 origin-left bg-gold md:mb-4 md:w-12" />
-                    <h4 className="anime-hero-copy text-[9px] font-bold uppercase tracking-[0.38em] text-gold md:text-xs md:tracking-[0.4em]">
+                  <div className="mb-8">
+                    <div className="anime-hero-line w-12 h-px bg-gold mb-4 origin-left" />
+                    <h4 className="anime-hero-copy font-bold text-[10px] md:text-xs tracking-[0.4em] text-gold uppercase">
                       {HERO_SLIDES[currentSlide].tagline}
                     </h4>
                   </div>
-                  <h1 className="display-xl mb-4 max-w-5xl text-white md:mb-8" aria-label={HERO_SLIDES[currentSlide].title}>
+                  <h1 className="display-xl text-white mb-8 max-w-5xl" aria-label={HERO_SLIDES[currentSlide].title}>
                     <span aria-hidden="true">
                       {HERO_SLIDES[currentSlide].title.split('.')[0].split('').map((char, index) => (
                         <span key={`${currentSlide}-${char}-${index}`} className="anime-hero-char inline-block will-change-transform">
@@ -299,15 +299,15 @@ export default function Home() {
                       <span className="anime-hero-char inline-block text-gold">.</span>
                     </span>
                   </h1>
-                  <p className="anime-hero-copy mb-6 max-w-xl font-body text-base leading-relaxed text-white/60 md:mb-12 md:text-2xl">
+                  <p className="anime-hero-copy text-white/60 text-lg md:text-2xl font-body max-w-xl mb-12 leading-relaxed">
                     {HERO_SLIDES[currentSlide].subtitle}
                   </p>
                   
-                  <div className="anime-hero-copy flex flex-row flex-wrap gap-2.5 md:gap-3">
-                    <Link to="/about" className="anime-hover btn-primary px-4 py-3 text-[11px] md:px-5 md:text-xs">
+                  <div className="anime-hero-copy flex flex-row flex-wrap gap-3">
+                    <Link to="/about" className="anime-hover btn-primary text-xs px-5 py-3">
                       DISCOVER MISSION
                     </Link>
-                    <Link to="/get-involved" className="anime-hover rounded-none border border-white/20 px-4 py-3 text-[11px] font-bold text-white transition-colors hover:bg-white hover:text-navy md:px-5 md:text-xs">
+                    <Link to="/get-involved" className="anime-hover border border-white/20 text-white font-bold text-xs px-5 py-3 rounded-none hover:bg-white hover:text-navy transition-colors">
                       GET INVOLVED
                     </Link>
                   </div>
@@ -323,7 +323,7 @@ export default function Home() {
         </svg>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-8 z-20 flex gap-3 md:bottom-10 md:left-10 md:gap-4">
+        <div className="absolute bottom-10 left-10 flex gap-4 z-20">
           {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
