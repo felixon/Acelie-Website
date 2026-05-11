@@ -257,7 +257,7 @@ export default function Home() {
     <div ref={motionRootRef} className="overflow-hidden bg-offwhite">
       <div ref={cursorRef} className="anime-cursor hidden lg:block" />
       {/* Hero Slideshow Section */}
-      <section className="gsap-hero relative h-screen min-h-[700px] flex items-center surface-dark px-6 overflow-hidden">
+      <section className="gsap-hero relative flex min-h-[560px] items-center overflow-hidden px-6 pt-16 surface-dark md:h-screen md:min-h-[700px] md:pt-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -276,20 +276,20 @@ export default function Home() {
                <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
             </div>
 
-            <div className="max-w-[1440px] mx-auto w-full h-full flex items-center relative z-10 px-8 md:px-16">
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-center px-2 md:px-16">
               <div className="max-w-4xl">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <div className="mb-8">
+                  <div className="mb-5 md:mb-8">
                     <div className="anime-hero-line w-12 h-px bg-gold mb-4 origin-left" />
                     <h4 className="anime-hero-copy font-bold text-[10px] md:text-xs tracking-[0.4em] text-gold uppercase">
                       {HERO_SLIDES[currentSlide].tagline}
                     </h4>
                   </div>
-                  <h1 className="display-xl text-white mb-8 max-w-5xl" aria-label={HERO_SLIDES[currentSlide].title}>
+                  <h1 className="display-xl mb-5 max-w-5xl text-white md:mb-8" aria-label={HERO_SLIDES[currentSlide].title}>
                     <span aria-hidden="true">
                       {HERO_SLIDES[currentSlide].title.split('.')[0].split('').map((char, index) => (
                         <span key={`${currentSlide}-${char}-${index}`} className="anime-hero-char inline-block will-change-transform">
@@ -299,7 +299,7 @@ export default function Home() {
                       <span className="anime-hero-char inline-block text-gold">.</span>
                     </span>
                   </h1>
-                  <p className="anime-hero-copy text-white/60 text-lg md:text-2xl font-body max-w-xl mb-12 leading-relaxed">
+                  <p className="anime-hero-copy mb-8 max-w-xl font-body text-base leading-relaxed text-white/60 md:mb-12 md:text-2xl">
                     {HERO_SLIDES[currentSlide].subtitle}
                   </p>
                   
@@ -323,7 +323,7 @@ export default function Home() {
         </svg>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-10 left-10 flex gap-4 z-20">
+        <div className="absolute bottom-6 left-6 z-20 flex gap-3 md:bottom-10 md:left-10 md:gap-4">
           {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
