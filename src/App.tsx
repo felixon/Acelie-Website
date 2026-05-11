@@ -21,9 +21,14 @@ function ScrollToTop() {
   return null;
 }
 
+const routerBasename =
+  import.meta.env.BASE_URL === '/'
+    ? undefined
+    : import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export default function App() {
   return (
-    <Router>
+    <Router basename={routerBasename}>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
@@ -44,4 +49,3 @@ export default function App() {
     </Router>
   );
 }
-
