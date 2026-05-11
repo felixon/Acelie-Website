@@ -105,6 +105,14 @@ export default function Home() {
   const cursorRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrentSlide((slide) => (slide + 1) % HERO_SLIDES.length);
+    }, 6000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
     const root = motionRootRef.current;
     const cursor = cursorRef.current;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -257,7 +265,7 @@ export default function Home() {
     <div ref={motionRootRef} className="overflow-hidden bg-offwhite">
       <div ref={cursorRef} className="anime-cursor hidden lg:block" />
       {/* Hero Slideshow Section */}
-      <section className="gsap-hero relative h-screen min-h-[700px] flex items-center surface-dark px-6 overflow-hidden">
+      <section className="gsap-hero relative flex min-h-[620px] items-center overflow-hidden px-6 surface-dark md:h-screen md:min-h-[700px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -323,7 +331,7 @@ export default function Home() {
         </svg>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-10 left-10 flex gap-4 z-20">
+        <div className="absolute bottom-6 left-8 z-20 flex gap-3 md:bottom-10 md:left-10 md:gap-4">
           {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
