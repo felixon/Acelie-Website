@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1A2A5E;
+  --color-gold: #C9952A;
+  --color-forest: #2D6A3F;
+  --color-wisdom: #4A235A;
+  --color-offwhite: #F8F5EE;
+  --color-charcoal: #1C1C1C;
+  --color-hairline: rgba(0, 0, 0, 0.08);
+  --color-hairline-dark: rgba(255, 255, 255, 0.16);
+
+  --font-display: "Inter Tight", sans-serif;
+  --font-body: "Inter Tight", sans-serif;
+  --font-ui: "Inter Tight", sans-serif;
+
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-pill: 9999px;
+
+  /* Typographic Tokens from Design MD */
+  --text-display-xl: 56px;
+  --text-display-lg: 40px;
+  --text-display-md: 32px;
+  --text-heading-lg: 24px;
+  --text-heading-md: 20px;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-charcoal font-body antialiased selection:bg-gold/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-navy leading-[0.95] uppercase;
+  }
+
+  /* Specific Hierarchy Applications */
+  .display-xl { @apply text-[36px] md:text-[56px] font-bold leading-[0.95]; }
+  .display-lg { @apply text-[28px] md:text-[40px] font-bold leading-[0.95]; }
+  .display-md { @apply text-[32px] font-bold leading-[0.95]; }
+  .heading-lg { @apply text-[24px] font-bold leading-[0.95]; }
+  .heading-md { @apply text-[20px] font-bold leading-[0.95]; }
+  .body-lg { @apply text-[18px] font-normal leading-[1.5]; }
+  .body-md { @apply text-[16px] font-normal leading-[1.4]; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gold text-navy font-bold text-[14.4px] tracking-[0.01em] px-6 py-3.5 rounded-xs transition-all duration-150 hover:brightness-95 active:brightness-90;
+  }
+
+  .btn-secondary {
+    @apply bg-charcoal text-white font-bold text-[14.4px] tracking-[0.01em] px-6 py-3.5 rounded-xs transition-all duration-150 hover:bg-black active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply border-[1.5px] border-charcoal text-charcoal font-bold text-[14.4px] tracking-[0.01em] px-6 py-3.5 rounded-xs transition-all duration-150 hover:bg-charcoal hover:text-white;
+  }
+
+  .nav-link {
+    @apply font-normal text-[15px] tracking-[0.01em] normal-case relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-4px] left-0 w-0 h-[2px] bg-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .card-reno {
+    @apply bg-white border border-hairline rounded-none transition-all duration-200;
+  }
+
+  .surface-dark {
+    @apply bg-navy text-white;
+  }
+
+  .form-field-control {
+    @apply text-[14px] font-normal tracking-normal;
+  }
+
+  .contact-dark-form input,
+  .contact-dark-form textarea {
+    @apply bg-transparent px-0 py-2 text-[14px] font-normal tracking-normal text-white caret-gold transition-colors duration-200;
+  }
+
+  .contact-dark-form input::placeholder,
+  .contact-dark-form textarea::placeholder {
+    @apply text-white/38;
+  }
+
+  .contact-dark-form input:focus,
+  .contact-dark-form textarea:focus {
+    @apply bg-transparent;
+  }
+
+  .contact-dark-form input:not(:placeholder-shown),
+  .contact-dark-form textarea:not(:placeholder-shown) {
+    @apply bg-transparent text-white;
+  }
+
+  .contact-dark-form input:-webkit-autofill,
+  .contact-dark-form input:-webkit-autofill:hover,
+  .contact-dark-form input:-webkit-autofill:focus,
+  .contact-dark-form textarea:-webkit-autofill,
+  .contact-dark-form textarea:-webkit-autofill:hover,
+  .contact-dark-form textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    box-shadow: 0 0 0 1000px var(--color-navy) inset;
+    caret-color: var(--color-gold);
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  .light-form input,
+  .light-form textarea,
+  .light-form select {
+    @apply bg-transparent px-0 py-2 text-[14px] font-normal tracking-normal caret-gold transition-colors duration-200;
+  }
+
+  .light-form input:focus,
+  .light-form textarea:focus,
+  .light-form select:focus,
+  .light-form input:not(:placeholder-shown),
+  .light-form textarea:not(:placeholder-shown) {
+    @apply bg-transparent;
+  }
+
+  .light-form input:-webkit-autofill,
+  .light-form input:-webkit-autofill:hover,
+  .light-form input:-webkit-autofill:focus,
+  .light-form textarea:-webkit-autofill,
+  .light-form textarea:-webkit-autofill:hover,
+  .light-form textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-navy);
+    box-shadow: 0 0 0 1000px white inset;
+    caret-color: var(--color-gold);
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  .anime-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 70;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(201, 149, 42, 0.72);
+    border-radius: 9999px;
+    pointer-events: none;
+    mix-blend-mode: difference;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anime-hero-char,
+  .anime-hero-copy,
+  .anime-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
